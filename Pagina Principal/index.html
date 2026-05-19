@@ -13,6 +13,8 @@
                 <li><a href="index.html">Inicio</a></li>
                 <li><a href="#">Personalización</a></li>
                 <li><a href="#">Catálogo</a></li>
+                <li><a href="#">👤</a></li>
+                <li><a href="#">🛒</a></li>
             </ul>
         </nav>
     </header>
@@ -21,6 +23,11 @@
         <section id="slider">
             <h2>Nuestras Artesanías</h2>
             <div class="galeria">
+                <button onclick="alert('Imagen anterior')">Anterior</button>
+                
+                <img src="https://img.sanishtech.com/u/7fd987c73f8be567d8625bb0a4692983.png" alt="Artesania 1" width="400" height="300">
+                
+                <button onclick="alert('Imagen siguiente')">Siguiente</button>
             </div>
             <p>(Desliza para ver nuestros trabajos)</p>
         </section>
@@ -29,9 +36,32 @@
             <h2>¿Quiénes Somos?</h2>
             <p>Somos un emprendimiento cuyo enfoque es la realización de alcancías y decoraciones pintadas a mano con el diseño que más gustes.</p>
         </section>
+
+        <section id="opciones">
+            <button onclick="location.href='#'" style="padding: 20px; font-size: 18px;">Catálogo</button>
+            <button onclick="location.href='#'" style="padding: 20px; font-size: 18px;">Solicitud de Diseño</button>
+        </section>
     </main>
 
     <footer>
+        <div id="redes">
+            <p>Nuestras redes:</p>
+            <a href="https://facebook.com" target="_blank">Facebook</a>
+            <a href="https://www.instagram.com/ceramicasa_estudio_de_arte/" target="_blank">Instagram</a>
+            <a href="https://api.whatsapp.com/send/?phone=573015690865&text&type=phone_number&app_absent=0" target="_blank">WhatsApp</a>
+        </div>
+
+        <br>
+
+        <div id="contacto">
+            <h3>Dudas y Sugerencias:</h3>
+            <label>Correo:</label><br>
+            <input type="email" placeholder="Escribe tu correo:"><br>
+            <label>Mensaje:</label><br>
+            <textarea placeholder="Escribe tu mensaje:"></textarea><br>
+            <button onclick="alert('Correo enviado exitosamente!')">Enviar</button>
+        </div>
+
         <p>&copy; Ceramicasa Estudio de Arte</p>
     </footer>
 </body>
