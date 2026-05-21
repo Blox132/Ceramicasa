@@ -1,6 +1,11 @@
+@import url('https://fonts.googleapis.com/css2?family=Red+Hat+Display:ital,wght@0,300..900;1,300..900&display=swap');
+
 * {
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
+    height: auto;
+    font-family: "Red Hat Display", sans-serif;
 }
 
 header {
@@ -16,6 +21,11 @@ nav {
     margin: 0 auto;
 }
 
+nav .icono a img {
+    width: 120px;
+    border-radius: 100px;
+}
+
 nav ul {
     list-style: none;
 }
@@ -29,7 +39,7 @@ nav ul li a {
     text-decoration: none;
     color: #000000;
     font-weight: bold;
-    font-size: 18px;
+    font-size: 30px;
 }
 
 .Artesanias {
@@ -56,8 +66,19 @@ nav ul li a {
 }
 
 .galeria button {
+    background-color: #000000;
+    border: none;
+    border-radius: 100%;
     padding: 5px 10px;
+    padding-top: 10px;
     cursor: pointer;
+}
+
+.galeria button svg{
+    background-color: #000000;
+    color: #FFFFFF;
+    width: 20px;
+    height: 20px;
 }
 
 #quienes-somos h2 {
@@ -82,6 +103,9 @@ nav ul li a {
 
 #opciones button {
     margin: 20px;
+    margin-top: -10px;
+    border: none;
+    border-radius: 8px;
     cursor: pointer;
 }
 
@@ -104,16 +128,17 @@ footer {
     margin-bottom: 20px;
 }
 
-#redes a {
+#redes a svg{
     text-decoration: none;
     color: #000000;
     font-weight: bold;
     margin-right: 20px;
-    font-size: 20px;
+    width: 50px;
 }
 
-#redes a:hover {
-    text-decoration: underline;
+#redes a svg:hover {
+    color: #1E1E1E;
+    transition: color 0.3s ease;
 }
 
 #contacto {
@@ -137,8 +162,13 @@ footer {
 }
 
 #contacto button {
-    padding: 5px 15px;
+    background-color: #000000;
+    color: #FFFFFF;
+    padding: 10px 25px;
+    font-size: 15px;
     cursor: pointer;
+    border: none;
+    border-radius: 8px;
 }
 
 @media (max-width: 768px) {
