@@ -8,6 +8,12 @@
     font-family: "Red Hat Display", sans-serif;
 }
 
+body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
 header {
     background-color: #FFD700;
     padding: 15px;
@@ -42,11 +48,17 @@ nav ul li a {
     font-size: 30px;
 }
 
+main {
+    flex-grow: 1;
+    flex-direction: column;
+}
+
 .Artesanias {
     background-color: #1E1E1E;
     color: #FFFFFF;
     padding: 40px 20px;
     text-align: center;
+    flex-grow: 1;
 }
 
 #slider h2 {
@@ -91,6 +103,8 @@ nav ul li a {
     color: #000000;
     padding: 20px;
     max-width: 600px;
+    min-width: 200px;
+    font-size: 19px;
     margin: 0 auto;
     border-radius: 8px;
 }

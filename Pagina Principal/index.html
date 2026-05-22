@@ -11,7 +11,7 @@
         <nav>
             <div class="icono">
                 <a href="index.html">
-                    <img src="LogoCeramicasa.jpg">
+                    <img src="Imagenes/LogoCeramicasa.jpg">
                 </a>
             </div>
             <div class="menuprincipal">
@@ -35,11 +35,11 @@
             <section id="slider">
                 <h2>Nuestras Artesanías</h2>
                 <div class="galeria">
-                    <button onclick="alert('Imagen anterior')"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" viewBox="0 0 7 16"><path fill="currentColor" d="M5.5 13a.47.47 0 0 1-.35-.15l-4.5-4.5c-.2-.2-.2-.51 0-.71l4.5-4.49c.2-.2.51-.2.71 0s.2.51 0 .71L1.71 8l4.15 4.15c.2.2.2.51 0 .71c-.1.1-.23.15-.35.15Z"></path></svg></button>
-                    <img src="Ceramica1.png" alt="Artesania 1" width="400" height="300">
-                    <button onclick="alert('Imagen siguiente')"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" viewBox="0 0 7 16"><path fill="currentColor" d="M1.5 13a.47.47 0 0 1-.35-.15c-.2-.2-.2-.51 0-.71L5.3 7.99L1.15 3.85c-.2-.2-.2-.51 0-.71s.51-.2.71 0l4.49 4.51c.2.2.2.51 0 .71l-4.5 4.49c-.1.1-.23.15-.35.15"></path></svg></button>
+                    <button class="sliderButton"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" viewBox="0 0 7 16"><path fill="currentColor" d="M5.5 13a.47.47 0 0 1-.35-.15l-4.5-4.5c-.2-.2-.2-.51 0-.71l4.5-4.49c.2-.2.51-.2.71 0s.2.51 0 .71L1.71 8l4.15 4.15c.2.2.2.51 0 .71c-.1.1-.23.15-.35.15Z"></path></svg></button>
+                    <img id="sliderImage" src="Imagenes/Ceramica1.png" alt="Artesania 1" width="400" height="300">
+                    <button class="sliderButton"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" viewBox="0 0 7 16"><path fill="currentColor" d="M1.5 13a.47.47 0 0 1-.35-.15c-.2-.2-.2-.51 0-.71L5.3 7.99L1.15 3.85c-.2-.2-.2-.51 0-.71s.51-.2.71 0l4.49 4.51c.2.2.2.51 0 .71l-4.5 4.49c-.1.1-.23.15-.35.15"></path></svg></button>
                 </div>
-                <p>(Desliza para ver nuestros trabajos)</p>
+                <p>(Has click en las flechas para visualizar nuestros trabajos)</p>
             </section>
 
             <section id="quienes-somos">
@@ -75,5 +75,7 @@
             <button onclick="alert('Correo enviado exitosamente!')">Enviar</button>
         </div>
     </footer>
+
+    <script src="script.js"></script>
 </body>
 </html>
