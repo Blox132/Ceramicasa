@@ -16,10 +16,11 @@
 
 .contenedor-productos {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
+    flex-wrap: wrap;
     gap: 40px;
     width: 100%;
-    max-width: 900px;
+    max-width: 2200px;
     margin: 0 auto 40px auto;
 }
 
@@ -31,6 +32,7 @@
     display: flex;
     flex-direction: column;
     gap: 20px;
+    width: calc(33% - 30px);
 }
 
 .info-superior {
