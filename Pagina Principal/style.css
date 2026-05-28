@@ -49,6 +49,7 @@ nav ul li a {
 }
 
 main {
+    background-color: #1E1E1E;
     flex-grow: 1;
     flex-direction: column;
 }

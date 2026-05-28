@@ -1,0 +1,48 @@
+#main-admin {
+    background-color: #1e1e1e;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 75vh;
+}
+
+#titulo {
+    color: #FFD700;
+    font-size: 40px;
+    text-align: center;
+    margin-top: -2%;
+}
+
+#botonesAdmin {
+    background-color: black;
+    color: white;
+    min-width: auto;
+    height: 50vh;
+    border: 2px solid #FFD700;
+    border-radius: 15px;
+    padding: 15%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.botonAdmin {
+    width: 35%;
+    height: 90px;
+    padding: 15px;
+    margin: 30px;
+    background-color: #FFD700;
+    color: #000000;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    margin-top: 20px;
+}
+
+.botonAdmin:hover {
+    background-color: #f0e68c;
+    transform: scale(1.02);
+}
