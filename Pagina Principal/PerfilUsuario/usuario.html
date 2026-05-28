@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mi Perfil - Ceramicasa Estudio de Arte</title>
+    <link rel="icon" type="image/png" href="/Pagina Principal/Imagenes/LogoCeramicasa.jpg">
+    <link rel="stylesheet" href="/Pagina Principal/style.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="icono">
+                <a href="/Pagina Principal/index.html">
+                    <img src="/Pagina Principal/Imagenes/LogoCeramicasa.jpg">
+                </a>
+            </div>
+            <div class="menuprincipal">
+                <ul>
+                    <li><a href="/Pagina Principal/index.html">Inicio</a></li>
+                    <li><a href="/Pagina Principal/Personalización/paso1.html">Personalización</a></li>
+                    <li><a href="/Pagina Principal/Catálogo/catalog.html">Catálogo</a></li>
+                </ul>
+            </div>
+            <div class="perfilycarritodecompras">
+                <ul>
+                    <li><a href="/Pagina Principal/RegistroEInicioDeSesión/iniciarsesion.html" onclick="logout()">👤</a></li>
+                    <li><a href="#" id="cartIconBtn" onclick="toggleCartPanel(event)">🛒</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <div id="cartPanel" class="cart-panel"></div>
+        <!-- Perfil Usuario content will be added here -->
+    </main>
+
+    <footer>
+        <div class="paneldeabajo">
+            <p class="titulo-footer">Ceramicasa Estudio de Arte</p>
+        </div>
+    </footer>
+
+    <script src="/Pagina Principal/Carrito/carrito-panel.js"></script>
+    <script src="/Pagina Principal/RegistroEInicioDeSesión/script.js"></script>
+</body>
+</html>
