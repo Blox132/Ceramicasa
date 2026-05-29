@@ -223,6 +223,41 @@
     accent-color: #FFD700;
 }
 
+.facturacion-section {
+    margin-bottom: 20px;
+    padding: 15px;
+    background-color: #F5F5F5;
+    border-radius: 8px;
+    border: 1px solid #E0E0E0;
+}
+
+.facturacion-section label {
+    display: block;
+    margin-top: 12px;
+    margin-bottom: 5px;
+    color: #000000;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+.facturacion-section input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 12px;
+    border: 1px solid #CCCCCC;
+    border-radius: 5px;
+    font-size: 14px;
+    box-sizing: border-box;
+    background-color: #FFFFFF;
+    color: #000000;
+}
+
+.facturacion-section input:focus {
+    outline: none;
+    border-color: #FFD700;
+    box-shadow: 0 0 5px rgba(255, 215, 0, 0.3);
+}
+
 .btn-finalizar {
     width: 100%;
     padding: 15px;

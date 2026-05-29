@@ -93,12 +93,168 @@ function continuarCompra() {
     window.location.href = '/Pagina Principal/Catálogo/catalog.html';
 }
 
+// Generate random receipt ID
+function generateReceiptId() {
+    return 'RCP-' + Date.now() + '-' + Math.floor(Math.random() * 10000);
+}
+
+// Get current logged in user info
+function getCurrentUserInfo() {
+    const email = localStorage.getItem('ceramicasa_currentUser');
+    if (!email) return null;
+    
+    // Check if admin
+    if (email === 'admin@ceramicasa.com') {
+        return { email: email, isAdmin: true };
+    }
+    
+    // Get regular user info
+    const users = JSON.parse(localStorage.getItem('ceramicasa_users')) || [];
+    const user = users.find(u => u.email === email);
+    return user ? { ...user, isAdmin: false } : null;
+}
+
+// Check if user is logged in
+function isUserLoggedIn() {
+    return localStorage.getItem('ceramicasa_currentUser') !== null;
+}
+
+// Separate catalog items from custom designs
+function separateItems(cartItems) {
+    const catalogItems = [];
+    const customItems = [];
+    
+    cartItems.forEach(item => {
+        if (item.name.startsWith('Diseño Personalizado -')) {
+            customItems.push(item);
+        } else {
+            catalogItems.push(item);
+        }
+    });
+    
+    return { catalogItems, customItems };
+}
+
+// Create and save receipt to storage
+function createReceipt(type, items, billingInfo, userInfo) {
+    const receipt = {
+        id: generateReceiptId(),
+        type: type, // 'catalog' or 'custom'
+        fecha: new Date().toLocaleString('es-CO'),
+        usuario: {
+            nombre: billingInfo.nombre,
+            email: billingInfo.email,
+            telefono: billingInfo.telefono,
+            direccion: billingInfo.direccion,
+            ciudad: billingInfo.ciudad
+        },
+        items: items,
+        metodoPago: billingInfo.metodoPago,
+        subtotal: items.reduce((sum, item) => sum + (item.price * item.quantity), 0),
+        envio: 10000,
+        total: items.reduce((sum, item) => sum + (item.price * item.quantity), 0) + 10000
+    };
+    
+    // For custom items, add material and description
+    if (type === 'custom' && items.length > 0) {
+        const customData = JSON.parse(localStorage.getItem('customDesignData')) || {};
+        receipt.material = customData.material;
+        receipt.descripcion = customData.descripcion;
+    }
+    
+    return receipt;
+}
+
+// Save receipts to appropriate storage
+function saveReceipts(catalogItems, customItems, billingInfo) {
+    const receipts = {
+        catalog: [],
+        custom: []
+    };
+    
+    if (catalogItems.length > 0) {
+        const catalogReceipt = createReceipt('catalog', catalogItems, billingInfo);
+        let catalogReceipts = JSON.parse(localStorage.getItem('gestionFacturas')) || [];
+        catalogReceipts.push(catalogReceipt);
+        localStorage.setItem('gestionFacturas', JSON.stringify(catalogReceipts));
+        receipts.catalog = [catalogReceipt];
+    }
+    
+    if (customItems.length > 0) {
+        const customReceipt = createReceipt('custom', customItems, billingInfo);
+        let customReceipts = JSON.parse(localStorage.getItem('gestionPedidosPersonalizados')) || [];
+        customReceipts.push(customReceipt);
+        localStorage.setItem('gestionPedidosPersonalizados', JSON.stringify(customReceipts));
+        receipts.custom = [customReceipt];
+    }
+    
+    return receipts;
+}
+
 // Handle form submission
 document.getElementById('checkoutForm').addEventListener('submit', function(e) {
     e.preventDefault();
-    alert('¡Compra realizada exitosamente! Nos pondremos en contacto pronto.');
+    
+    // Validate billing form
+    const nombre = document.getElementById('factNombre').value.trim();
+    const email = document.getElementById('factEmail').value.trim();
+    const telefono = document.getElementById('factTelefono').value.trim();
+    const direccion = document.getElementById('factDireccion').value.trim();
+    const ciudad = document.getElementById('factCiudad').value.trim();
+    const metodoPago = document.querySelector('input[name="payment"]:checked');
+    
+    if (!nombre || !email || !telefono || !direccion || !ciudad || !metodoPago) {
+        alert('Por favor completa todos los campos de la facturación.');
+        return;
+    }
+    
+    if (cart.length === 0) {
+        alert('Tu carrito está vacío.');
+        return;
+    }
+    
+    const billingInfo = {
+        nombre: nombre,
+        email: email,
+        telefono: telefono,
+        direccion: direccion,
+        ciudad: ciudad,
+        metodoPago: metodoPago.value
+    };
+    
+    // Check if user is logged in
+    if (!isUserLoggedIn()) {
+        // Save order and billing info for later
+        localStorage.setItem('pendingOrder', JSON.stringify({
+            cart: cart,
+            billingInfo: billingInfo,
+            timestamp: new Date().getTime()
+        }));
+        
+        alert('Necesitas iniciar sesión para completar tu compra. Te redirigiremos a la página de inicio de sesión.');
+        window.location.href = '/Pagina Principal/RegistroEInicioDeSesión/iniciarsesion.html';
+        return;
+    }
+    
+    // User is logged in, process the order
+    const { catalogItems, customItems } = separateItems(cart);
+    
+    // Save receipts
+    saveReceipts(catalogItems, customItems, billingInfo);
+    
+    // Clear cart
     localStorage.removeItem('cart');
     cart = [];
+    
+    // Clear custom design data if any
+    localStorage.removeItem('customDesignData');
+    localStorage.removeItem('material');
+    localStorage.removeItem('descripcion');
+    
+    // Clear pending order if any
+    localStorage.removeItem('pendingOrder');
+    
+    alert('¡Compra realizada exitosamente! Nos pondremos en contacto pronto.');
     window.location.href = '/Pagina Principal/index.html';
 });
 

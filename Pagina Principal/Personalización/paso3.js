@@ -32,6 +32,13 @@ function terminar() {
     let materialCapitalizado = material.charAt(0).toUpperCase() + material.slice(1);
     let itemName = "Diseño Personalizado - " + materialCapitalizado;
     
+    // Save custom design data for receipts
+    localStorage.setItem("customDesignData", JSON.stringify({
+        material: material,
+        descripcion: descripcion,
+        precio: precio
+    }));
+    
     // Add to cart using global function from carrito-panel.js
     addToCart(itemName, precio, materialToDisplay);
     

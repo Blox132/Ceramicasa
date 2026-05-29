@@ -6,7 +6,7 @@
     <title>Panel de Administrador - Ceramicasa Estudio de Arte</title>
     <link rel="icon" type="image/png" href="/Pagina Principal/Imagenes/LogoCeramicasa.jpg">
     <link rel="stylesheet" href="/Pagina Principal/style.css">
-    <link rel="stylesheet" href="adminstyle.css">
+    <link rel="stylesheet" href="gestionpedidospersonalizadosstyles.css">
 </head>
 <body>
     <header>
@@ -32,19 +32,14 @@
         </nav>
     </header>
 
-    <main id="main-admin">
-        <h1 id="titulo">Bienvenido Admin! Acá podras gestionar toda la página, y ver pedidos.</h1><br><br>
-        <div id="botonesAdmin">
-            
-            <!--Parte Jerónimo-->
-            <button onclick="location.href = '/Pagina Principal/PerfilAdmin/GestionFacturas/gestionfacturas.html'" class="botonAdmin">Gestión de Facturas</button>
-            <button onclick="location.href = '/Pagina Principal/PerfilAdmin/GestionPedidosPersonalizados/gestionpedidospersonalizados.html'" class="botonAdmin">Gestión de Pedidos Personalizados</button>
-            
-            <!--Parte Andrés-->
-            <button class="botonAdmin">Despacho de Pedidos</button>
-            <button class="botonAdmin">Actualizar Stock</button>
-            <button class="botonAdmin">Control de Elaboración</button>
-        </div>
+    <main id="main-gestionFacturasPersonalizadas">
+        <h1 id="titulo">Pedidos Personalizados<br>
+        Acá recibiras las solicitudes de cerámicas personalizadas hechos por el cliente.</h1>
+        <h2 id="subtitulo">NOTA: probablemente tengas que actualizar la página para que aparezcan nuevos pedidos.</h2>
+        
+        <div id="pedidosContainer"></div>
+        
+        <button onclick="location.href='/Pagina Principal/PerfilAdmin/admin.html'" id="retroceder">← Volver al Panel de Administrador</button>
     </main>
 
     <footer>
@@ -55,5 +50,6 @@
 
     <script src="/Pagina Principal/Carrito/carrito-panel.js"></script>
     <script src="/Pagina Principal/RegistroEInicioDeSesión/script.js"></script>
+    <script src="gestionpedidospersonalizados.js"></script>
 </body>
 </html>
