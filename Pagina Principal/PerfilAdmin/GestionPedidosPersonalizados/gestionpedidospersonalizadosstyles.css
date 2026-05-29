@@ -1,7 +1,7 @@
 #main-gestionFacturasPersonalizadas {
     display: flex;
     flex-direction: column;
-    height: 85vh;
+    min-height: 85vh;
 }
 
 #titulo {
@@ -32,19 +32,20 @@
     background-color: black;
     color: white;
     text-align: center;
-    font-size: 18px;
+    font-size: 16px;
     padding: 20px;
-    width: 300px;
-    min-height: 400px;
+    width: 320px;
+    min-height: 500px;
     border-radius: 20px;
     border: 2px solid #FFD700;
     display: flex;
     flex-direction: column;
+    position: relative;
 }
 
 #retroceder {
     display: block;
-    margin: 40px auto 0;
+    margin: 40px auto;
     padding: 15px 40px;
     background-color: #FFD700;
     color: #000000;
@@ -69,7 +70,7 @@
     border-radius: 8px;
     cursor: pointer;
     font-weight: bold;
-    margin-top: auto;
+    margin-top: 15px;
     transition: all 0.2s ease;
     font-size: 14px;
 }
@@ -77,4 +78,49 @@
 .btn-delete:hover {
     background-color: #FF0000;
     transform: scale(1.05);
+}
+
+
+.control-elaboracion-block {
+    margin-top: auto;
+    padding: 10px 0;
+    border-top: 1px dashed #FFD700;
+    border-bottom: 1px dashed #FFD700;
+}
+
+.control-elaboracion-block label {
+    display: block;
+    font-size: 14px;
+    margin-bottom: 5px;
+    color: #fff8d1;
+}
+
+.select-estado-admin {
+    width: 100%;
+    padding: 8px;
+    background-color: #222;
+    color: #FFD700;
+    border: 1px solid #FFD700;
+    border-radius: 6px;
+    font-weight: bold;
+    cursor: pointer;
+    text-align: center;
+}
+
+.alerta-retraso {
+    background-color: #FF4444;
+    color: white;
+    font-size: 13px;
+    font-weight: bold;
+    padding: 6px;
+    border-radius: 10px;
+    margin-bottom: 12px;
+    border: 1px solid white;
+    animation: palpitarAlerta 2.5s infinite;
+}
+
+@keyframes palpitarAlerta {
+    0% { opacity: 1; }
+    50% { opacity: 0.7; }
+    100% { opacity: 1; }
 }

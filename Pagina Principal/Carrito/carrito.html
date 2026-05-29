@@ -72,7 +72,7 @@
                                 </label>
                             </div>
                             
-                            <h4>Información de Facturación</h4>
+                             <h4>Información de Facturación</h4>
                             <div class="facturacion-section">
                                 <label>Nombre Completo:</label><br>
                                 <input type="text" id="factNombre" name="nombre" placeholder="Tu nombre completo" required><br>
@@ -80,14 +80,38 @@
                                 <label>Correo Electrónico:</label><br>
                                 <input type="email" id="factEmail" name="email" placeholder="Tu correo electrónico" required><br>
                                 
-                                <label>Teléfono:</label><br>
-                                <input type="tel" id="factTelefono" name="telefono" placeholder="Tu número de teléfono" required><br>
+                                <label>Teléfono (10 dígitos):</label><br>
+                                <input type="tel" id="factTelefono" name="telefono" placeholder="Ej: 3015690865" pattern="[0-9]{10}" title="El número de teléfono debe tener exactamente 10 dígitos numéricos" required><br>
                                 
                                 <label>Dirección:</label><br>
                                 <input type="text" id="factDireccion" name="direccion" placeholder="Tu dirección completa" required><br>
                                 
                                 <label>Ciudad/Municipio:</label><br>
-                                <input type="text" id="factCiudad" name="ciudad" placeholder="Tu ciudad o municipio" required><br>
+                                <select id="factCiudad" name="ciudad" required style="width: 100%; padding: 8px; margin-bottom: 10px; border-radius: 4px; border: 1px solid #ccc;">
+                                    <option value="" disabled selected>Selecciona tu ciudad/municipio</option>
+                                    <option value="Bogotá">Bogotá D.C.</option>
+                                    <option value="Medellín">Medellín (Antioquia)</option>
+                                    <option value="Cali">Cali (Valle del Cauca)</option>
+                                    <option value="Barranquilla">Barranquilla (Atlántico)</option>
+                                    <option value="Bucaramanga">Bucaramanga (Santander)</option>
+                                    <option value="Cartagena">Cartagena (Bolívar)</option>
+                                    <option value="Cúcuta">Cúcuta (Norte de Santander)</option>
+                                    <option value="Pereira">Pereira (Risaralda)</option>
+                                    <option value="Ibagué">Ibagué (Tolima)</option>
+                                    <option value="Santa Marta">Santa Marta (Magdalena)</option>
+                                    <option value="Manizales">Manizales (Caldas)</option>
+                                    <option value="Pastos">Pasto (Nariño)</option>
+                                    <option value="Villavicencio">Villavicencio (Meta)</option>
+                                    <option value="Neiva">Neiva (Huila)</option>
+                                    <option value="Armenia">Armenia (Quindío)</option>
+                                    <option value="Valledupar">Valledupar (Cesar)</option>
+                                    <option value="Montería">Montería (Córdoba)</option>
+                                    <option value="Envigado">Envigado (Antioquia)</option>
+                                    <option value="Bello">Bello (Antioquia)</option>
+                                    <option value="Itagüí">Itagüí (Antioquia)</option>
+                                    <option value="Soledad">Soledad (Atlántico)</option>
+                                    <option value="Soacha">Soacha (Cundinamarca)</option>
+                                </select><br>
                             </div>
                             
                             <button type="submit" class="btn-finalizar">Finalizar Compra</button>

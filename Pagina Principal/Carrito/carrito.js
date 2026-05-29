@@ -200,11 +200,18 @@ document.getElementById('checkoutForm').addEventListener('submit', function(e) {
     const email = document.getElementById('factEmail').value.trim();
     const telefono = document.getElementById('factTelefono').value.trim();
     const direccion = document.getElementById('factDireccion').value.trim();
-    const ciudad = document.getElementById('factCiudad').value.trim();
+    const ciudad = document.getElementById('factCiudad').value; 
     const metodoPago = document.querySelector('input[name="payment"]:checked');
     
     if (!nombre || !email || !telefono || !direccion || !ciudad || !metodoPago) {
         alert('Por favor completa todos los campos de la facturación.');
+        return;
+    }
+    
+    const telefonoRegex = /^[0-9]{10}$/;
+    if (!telefonoRegex.test(telefono)) {
+        alert('El número de teléfono no es válido. Debe contener exactamente 10 dígitos numéricos (Ejemplo: 3015690865).');
+        document.getElementById('factTelefono').focus();
         return;
     }
     
