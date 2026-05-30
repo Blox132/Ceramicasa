@@ -192,4 +192,31 @@ document.addEventListener('click', function(e) {
 document.addEventListener('DOMContentLoaded', function() {
     updateCartPanel();
     checkCatalogStockButtons();
+
+    const currentUser = localStorage.getItem('ceramicasa_currentUser');
+    if (currentUser) {
+        const links = document.querySelectorAll('a');
+        links.forEach(link => {
+            const href = link.getAttribute('href');
+            if (href && (href.includes('iniciarsesion.html') || link.textContent.trim() === '👤')) {
+                const onClickAttr = link.getAttribute('onclick');
+                if (!onClickAttr || !onClickAttr.includes('logout')) {
+                    if (currentUser === 'admin@ceramicasa.com') {
+                        link.setAttribute('href', '/Pagina Principal/PerfilAdmin/admin.html');
+                    } else {
+                        link.setAttribute('href', '/Pagina Principal/PerfilUsuario/usuario.html');
+                    }
+                }
+            }
+        });
+
+        const currentPath = window.location.pathname;
+        if (currentPath.includes('iniciarsesion.html') || currentPath.includes('registrarse.html')) {
+            if (currentUser === 'admin@ceramicasa.com') {
+                window.location.href = '/Pagina Principal/PerfilAdmin/admin.html';
+            } else {
+                window.location.href = '/Pagina Principal/PerfilUsuario/usuario.html';
+            }
+        }
+    }
 });
